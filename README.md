@@ -1,1 +1,1 @@
-# Differential-Equations-on-Mathematica
+# Differential-Equations-on-Mathematica Application
