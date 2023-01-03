@@ -1,0 +1,999 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     31603,        991]
+NotebookOptionsPosition[     29179,        906]
+NotebookOutlinePosition[     29772,        928]
+CellTagsIndexPosition[     29729,        925]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ StyleBox["Practical 4",
+  FontSize->72,
+  FontColor->RGBColor[1, 0, 0]],
+ StyleBox["\n",
+  FontSize->36,
+  FontColor->RGBColor[1, 0, 0]],
+ StyleBox["Solution of Differential Equation by Variation of parameter",
+  FontSize->24,
+  FontColor->RGBColor[0, 1, 0]]
+}], "Text",
+ CellFrame->6,
+ CellFrameColor->RGBColor[1, 0, 0],
+ CellChangeTimes->{{3.877688204860861*^9, 3.877688205619605*^9}, {
+  3.87768841837669*^9, 3.877688441249441*^9}, {3.8776932422320185`*^9, 
+  3.877693261695553*^9}},
+ Background->GrayLevel[1]],
+
+Cell[TextData[{
+ StyleBox["Second order differential equations\n",
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["d", "2"], "y"}], 
+    SuperscriptBox["dx", "2"]], TraditionalForm]],
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ StyleBox[" + ",
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"p", " "}], TraditionalForm]],
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ StyleBox[" ",
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   FractionBox["dy", "dx"], TraditionalForm]],
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ StyleBox[" + qy = f(x)\nWhere p and q are constants f(x) is a non zero \
+function of x\nGeneral solution of homogeneous equation ",
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["d", "2"], "y"}], 
+    SuperscriptBox["dx", "2"]], TraditionalForm]],
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ StyleBox[" + ",
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"p", " "}], TraditionalForm]],
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ StyleBox[" ",
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   FractionBox["dy", "dx"], TraditionalForm]],
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ StyleBox[" + qy = 0\nParticular solutions of the non - homogeneous equation ",
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["d", "2"], "y"}], 
+    SuperscriptBox["dx", "2"]], TraditionalForm]],
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ StyleBox[" + ",
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"p", " "}], TraditionalForm]],
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ StyleBox[" ",
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   FractionBox["dy", "dx"], TraditionalForm]],
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ StyleBox[" + qy = f(x)\ny\[CloseCurlyQuote]\[CloseCurlyQuote][x] + y[x] == \
+2Sin[x]",
+  FontFamily->"Comic Sans MS",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]]
+}], "Text",
+ CellChangeTimes->{{3.877688559232057*^9, 3.8776888705166903`*^9}, {
+  3.8776889305259256`*^9, 3.8776889428229895`*^9}, {3.8776889886393633`*^9, 
+  3.8776890149256315`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["ClearAll"], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.8776881303005667`*^9, 3.877688195706389*^9}, {
+  3.877689042551948*^9, 3.877689047515229*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData["ClearAll"], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.877689050037492*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gsh", " ", "=", " ", 
+  RowBox[{"DSolve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "''"}], "[", "x", "]"}], "+", 
+      RowBox[{"y", "[", "x", "]"}]}], " ", "\[Equal]", " ", "0"}], ",", " ", 
+    RowBox[{"y", "[", "x", "]"}], ",", " ", "x"}], "]"}]}]], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.877689057613655*^9, 3.8776890860289145`*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"y", "[", "x", "]"}], "\[Rule]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"C", "[", "1", "]"}], " ", 
+      RowBox[{"Cos", "[", "x", "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"C", "[", "2", "]"}], " ", 
+      RowBox[{"Sin", "[", "x", "]"}]}]}]}], "}"}], "}"}]], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.8776891684215183`*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gsh", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"y", "[", "x", "]"}], "/.", "gsh"}]}]], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.8776891793654046`*^9, 3.877689189595593*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"C", "[", "1", "]"}], " ", 
+    RowBox[{"Cos", "[", "x", "]"}]}], "+", 
+   RowBox[{
+    RowBox[{"C", "[", "2", "]"}], " ", 
+    RowBox[{"Sin", "[", "x", "]"}]}]}], "}"}]], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.8776891909471407`*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"y1", " ", ":=", " ", 
+   RowBox[{"Cos", "[", "x", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"y2", " ", ":=", " ", 
+   RowBox[{"Sin", "[", "x", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f", " ", ":=", " ", 
+   RowBox[{"2", "*", 
+    RowBox[{"Sin", "[", "x", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"w", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"y1", "*", 
+    RowBox[{"D", "[", 
+     RowBox[{"y2", ",", " ", "x"}], "]"}]}], "-", 
+   RowBox[{"y2", "*", 
+    RowBox[{"D", "[", 
+     RowBox[{"y1", ",", " ", "x"}], "]"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"w", " ", "=", " ", 
+  RowBox[{"Simplify", "[", "w", "]"}]}]}], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.8776892090769343`*^9, 3.877689291665489*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox[
+   RowBox[{"Cos", "[", "x", "]"}], "2"], "+", 
+  SuperscriptBox[
+   RowBox[{"Sin", "[", "x", "]"}], "2"]}]], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.8776892962714405`*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData["1"], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.8776892962714405`*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"psn", " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "y1"}], "*", 
+    RowBox[{"Integrate", "[", 
+     RowBox[{
+      RowBox[{"y2", "*", 
+       RowBox[{"(", 
+        RowBox[{"f", "/", "w"}], ")"}]}], ",", " ", "x"}], "]"}]}], "+", 
+   RowBox[{"y2", "*", 
+    RowBox[{"Integrate", "[", 
+     RowBox[{
+      RowBox[{"y1", "*", 
+       RowBox[{"(", 
+        RowBox[{"f", "/", "w"}], ")"}]}], ",", " ", "x"}], 
+     "]"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"psn1", " ", "=", " ", 
+  RowBox[{"Simplify", "[", "psn", "]"}]}]}], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.877689556169512*^9, 3.8776896621163936`*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox["1", "2"]}], " ", 
+   RowBox[{"Cos", "[", 
+    RowBox[{"2", " ", "x"}], "]"}], " ", 
+   RowBox[{"Sin", "[", "x", "]"}]}], "-", 
+  RowBox[{"2", " ", 
+   RowBox[{"Cos", "[", "x", "]"}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     FractionBox["x", "2"], "-", 
+     RowBox[{
+      FractionBox["1", "4"], " ", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"2", " ", "x"}], "]"}]}]}], ")"}]}]}]], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.877689668381537*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "2"], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "2"}], " ", "x", " ", 
+     RowBox[{"Cos", "[", "x", "]"}]}], "+", 
+    RowBox[{"Sin", "[", "x", "]"}]}], ")"}]}]], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.877689668381537*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gsh1", "+", "psn1"}]], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.877689682050865*^9, 3.877689687215029*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ RowBox[{"gsh1", "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "2"}], " ", "x", " ", 
+      RowBox[{"Cos", "[", "x", "]"}]}], "+", 
+     RowBox[{"Sin", "[", "x", "]"}]}], ")"}]}]}]], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.877689698947454*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["ClearAll"], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.877689933433275*^9, 3.877689936043705*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData["ClearAll"], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.877690070484336*^9, 3.877690258999236*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]],
+
+Cell["Exa2 : y\[CloseCurlyQuote]\[CloseCurlyQuote] + 3*y\[CloseCurlyQuote] + \
+2*y = 30*e^(2 x)", "Text",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.8776901373084955`*^9, 3.877690171890931*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"yc2", " ", "=", " ", 
+  RowBox[{"DSolve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "''"}], "[", "x", "]"}], "+", 
+      RowBox[{"3", "*", 
+       RowBox[{
+        RowBox[{"y", "'"}], "[", "x", "]"}]}], "+", 
+      RowBox[{"2", "*", 
+       RowBox[{"y", "[", "x", "]"}]}]}], " ", "\[Equal]", " ", "0"}], ",", 
+    " ", 
+    RowBox[{"y", "[", "x", "]"}], ",", " ", "x"}], "]"}]}]], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.8776900804041758`*^9, 3.877690129112403*^9}, {
+  3.877690178020259*^9, 3.8776902213821397`*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"y", "[", "x", "]"}], "\[Rule]", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "x"}]], " ", 
+      RowBox[{"C", "[", "1", "]"}]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"-", "x"}]], " ", 
+      RowBox[{"C", "[", "2", "]"}]}]}]}], "}"}], "}"}]], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.8776902327140837`*^9, 3.8776902650596223`*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"y1", " ", ":=", " ", 
+  RowBox[{"Exp", "[", 
+   RowBox[{
+    RowBox[{"-", "2"}], "*", "x"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"y2", " ", ":=", " ", 
+  RowBox[{"Exp", "[", 
+   RowBox[{
+    RowBox[{"-", "1"}], "*", "x"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"f", ":=", 
+  RowBox[{"30", "*", 
+   RowBox[{"Exp", "[", 
+    RowBox[{"2", "*", "x"}], "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"w", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"y1", "*", 
+    RowBox[{"D", "[", 
+     RowBox[{"y2", ",", " ", "x"}], "]"}]}], " ", "-", " ", 
+   RowBox[{"y2", "*", 
+    RowBox[{"D", "[", 
+     RowBox[{"y1", ",", " ", "x"}], "]"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"w", " ", "=", " ", 
+  RowBox[{"Simplify", "[", "w", "]"}]}]}], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.8776902845260744`*^9, 3.877690335253544*^9}, {
+  3.877690510279973*^9, 3.8776905596405296`*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ SuperscriptBox["\[ExponentialE]", 
+  RowBox[{
+   RowBox[{"-", "3"}], " ", "x"}]]], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.877690562296896*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ SuperscriptBox["\[ExponentialE]", 
+  RowBox[{
+   RowBox[{"-", "3"}], " ", "x"}]]], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.877690562300665*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"yp2", " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "y1"}], "*", 
+    RowBox[{"Integrate", "[", 
+     RowBox[{
+      RowBox[{"y2", "*", 
+       RowBox[{"(", 
+        RowBox[{"f", "/", "w"}], ")"}]}], ",", " ", "x"}], "]"}]}], "+", 
+   RowBox[{"y2", "*", 
+    RowBox[{"Integrate", "[", 
+     RowBox[{
+      RowBox[{"y1", "*", 
+       RowBox[{"(", 
+        RowBox[{"f", "/", "w"}], ")"}]}], ",", " ", "x"}], 
+     "]"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"yp2", " ", "=", " ", 
+  RowBox[{"Simplify", "[", "yp2", "]"}]}]}], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.8776906119743156`*^9, 3.877690703122523*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"5", " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"2", " ", "x"}]]}], "2"]], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.877690681853064*^9, 3.8776907124858694`*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"yc2", " ", "+", " ", "yp2"}]], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.877690756132945*^9, 3.87769076132721*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"5", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"2", " ", "x"}]]}], "2"], "+", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"y", "[", "x", "]"}], "\[Rule]", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", "2"}], " ", "x"}]], " ", 
+        RowBox[{"C", "[", "1", "]"}]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"-", "x"}]], " ", 
+        RowBox[{"C", "[", "2", "]"}]}]}]}], ")"}]}], "}"}], "}"}]], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.877690765760372*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["ClearAll"], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.87769266645379*^9, 3.877692669895516*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData["ClearAll"], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.877692670832094*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"x", "=."}]], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.8776926849659653`*^9, 3.8776926892973413`*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ RowBox[{"y", "=."}]], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.8776926931371975`*^9, 3.8776927010113497`*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[TextData[{
+ StyleBox["Exercise Questions",
+  FontSize->16,
+  FontColor->RGBColor[0.5, 0, 0.5]],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Q1", ".", " ", 
+    FractionBox[
+     RowBox[{" ", 
+      RowBox[{
+       SuperscriptBox["d", "2"], "y"}]}], 
+     SuperscriptBox["dx", "2"]]}], TraditionalForm]]],
+ "+ y = Cotx"
+}], "Text",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.8776907791027174`*^9, 3.877690799280344*^9}, {
+  3.877691003622699*^9, 3.877691074505268*^9}, {3.8776928569018984`*^9, 
+  3.8776928569018984`*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"S1", "=", " ", 
+  RowBox[{"DSolve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "''"}], "[", "x", "]"}], "+", 
+      RowBox[{"y", "[", "x", "]"}]}], "\[Equal]", 
+     RowBox[{"Cot", "[", "x", "]"}]}], ",", " ", 
+    RowBox[{"y", "[", "x", "]"}], ",", " ", "x"}], "]"}]}]], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.877691441084483*^9, 3.877691501713935*^9}, {
+  3.877691636431881*^9, 3.877691644863612*^9}, {3.87769214832251*^9, 
+  3.8776921529529085`*^9}, {3.8776921878587976`*^9, 3.877692195567223*^9}, {
+  3.8776923437894363`*^9, 3.877692346662811*^9}, {3.8776923977615366`*^9, 
+  3.8776924079569883`*^9}, {3.8776925488215933`*^9, 3.8776925501576242`*^9}, {
+  3.8776927090019827`*^9, 3.877692717542239*^9}, {3.877693131899935*^9, 
+  3.8776931365323725`*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"y", "[", "x", "]"}], "\[Rule]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"C", "[", "1", "]"}], " ", 
+      RowBox[{"Cos", "[", "x", "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"C", "[", "2", "]"}], " ", 
+      RowBox[{"Sin", "[", "x", "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"Log", "[", 
+       RowBox[{"Cos", "[", 
+        FractionBox["x", "2"], "]"}], "]"}], " ", 
+      RowBox[{"Sin", "[", "x", "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"Log", "[", 
+       RowBox[{"Sin", "[", 
+        FractionBox["x", "2"], "]"}], "]"}], " ", 
+      RowBox[{"Sin", "[", "x", "]"}]}]}]}], "}"}], "}"}]], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.8776915377356157`*^9, 3.8776917086750126`*^9, 
+  3.8776921564443293`*^9, 3.877692197036523*^9, 3.8776922748572755`*^9, 
+  3.87769234827678*^9, 3.8776924092063885`*^9, 3.877692573213232*^9, 
+  3.877692676451686*^9, 3.8776927189365935`*^9, 3.87769313979045*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]],
+
+Cell[TextData[{
+ "Q2. ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["d", "2"], "y"}], 
+    SuperscriptBox["dx", "2"]], TraditionalForm]]],
+ " -2 ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{"dy", " "}], "dx"], TraditionalForm]]],
+ "+ y = ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["xe", "x"], TraditionalForm]]],
+ "lnx"
+}], "Text",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.8776928538180985`*^9, 3.877692953748369*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"s2", " ", "=", " ", 
+  RowBox[{"DSolve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "''"}], "[", "x", "]"}], "+", 
+      RowBox[{"4", "*", 
+       RowBox[{
+        RowBox[{"y", "'"}], "[", "x", "]"}]}], "+", 
+      RowBox[{"5", 
+       RowBox[{"y", "[", "x", "]"}]}]}], " ", "\[Equal]", " ", 
+     RowBox[{
+      SuperscriptBox["e", 
+       RowBox[{
+        RowBox[{"-", "2"}], "x"}]], "*", 
+      RowBox[{"Sec", "[", "x", "]"}]}]}], ",", " ", 
+    RowBox[{"y", "[", "x", "]"}], ",", " ", "x"}], "]"}]}]], "Input",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{{3.8776923890422235`*^9, 3.8776923909027357`*^9}, {
+  3.8776929683023615`*^9, 3.87769297518729*^9}, {3.877693094421382*^9, 
+  3.8776931199745255`*^9}, {3.8776931552910852`*^9, 3.8776931860990996`*^9}},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"y", "[", "x", "]"}], "\[Rule]", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "x"}]], " ", 
+      RowBox[{"C", "[", "2", "]"}], " ", 
+      RowBox[{"Cos", "[", "x", "]"}]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "x"}]], " ", 
+      RowBox[{"C", "[", "1", "]"}], " ", 
+      RowBox[{"Sin", "[", "x", "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["e", 
+         RowBox[{
+          RowBox[{"-", "2"}], " ", "x"}]], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "2"}], " ", "x"}], "-", 
+          RowBox[{"2", " ", "x", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Log", "[", "e", "]"}]}], ")"}]}]}]], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"\[ImaginaryI]", " ", 
+           SuperscriptBox["e", 
+            RowBox[{"2", " ", "x"}]], " ", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"2", " ", "\[ImaginaryI]", " ", "x"}]], " ", 
+           RowBox[{"Cos", "[", "x", "]"}], " ", 
+           RowBox[{"Hypergeometric2F1", "[", 
+            RowBox[{"1", ",", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"1", "-", "\[ImaginaryI]"}], ")"}], "+", 
+              RowBox[{"\[ImaginaryI]", " ", 
+               RowBox[{"Log", "[", "e", "]"}]}]}], ",", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"2", "-", "\[ImaginaryI]"}], ")"}], "+", 
+              RowBox[{"\[ImaginaryI]", " ", 
+               RowBox[{"Log", "[", "e", "]"}]}]}], ",", 
+             RowBox[{"-", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"2", " ", "\[ImaginaryI]", " ", "x"}]]}]}], "]"}]}], 
+          "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"1", "-", "\[ImaginaryI]"}], ")"}], " ", 
+           SuperscriptBox["e", 
+            RowBox[{"2", " ", "x"}]], " ", 
+           RowBox[{"Cos", "[", "x", "]"}], " ", 
+           RowBox[{"Hypergeometric2F1", "[", 
+            RowBox[{"1", ",", 
+             RowBox[{"\[ImaginaryI]", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Log", "[", "e", "]"}]}], ")"}]}], ",", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"1", "-", "\[ImaginaryI]"}], ")"}], "+", 
+              RowBox[{"\[ImaginaryI]", " ", 
+               RowBox[{"Log", "[", "e", "]"}]}]}], ",", 
+             RowBox[{"-", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"2", " ", "\[ImaginaryI]", " ", "x"}]]}]}], "]"}]}], 
+          "-", 
+          RowBox[{"\[ImaginaryI]", " ", 
+           SuperscriptBox["e", 
+            RowBox[{"2", " ", "x"}]], " ", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"2", " ", "\[ImaginaryI]", " ", "x"}]], " ", 
+           RowBox[{"Cos", "[", "x", "]"}], " ", 
+           RowBox[{"Hypergeometric2F1", "[", 
+            RowBox[{"1", ",", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"1", "-", "\[ImaginaryI]"}], ")"}], "+", 
+              RowBox[{"\[ImaginaryI]", " ", 
+               RowBox[{"Log", "[", "e", "]"}]}]}], ",", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"2", "-", "\[ImaginaryI]"}], ")"}], "+", 
+              RowBox[{"\[ImaginaryI]", " ", 
+               RowBox[{"Log", "[", "e", "]"}]}]}], ",", 
+             RowBox[{"-", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"2", " ", "\[ImaginaryI]", " ", "x"}]]}]}], "]"}], " ", 
+           RowBox[{"Log", "[", "e", "]"}]}], "+", 
+          RowBox[{"\[ImaginaryI]", " ", 
+           SuperscriptBox["e", 
+            RowBox[{"2", " ", "x"}]], " ", 
+           RowBox[{"Cos", "[", "x", "]"}], " ", 
+           RowBox[{"Hypergeometric2F1", "[", 
+            RowBox[{"1", ",", 
+             RowBox[{"\[ImaginaryI]", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Log", "[", "e", "]"}]}], ")"}]}], ",", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"1", "-", "\[ImaginaryI]"}], ")"}], "+", 
+              RowBox[{"\[ImaginaryI]", " ", 
+               RowBox[{"Log", "[", "e", "]"}]}]}], ",", 
+             RowBox[{"-", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"2", " ", "\[ImaginaryI]", " ", "x"}]]}]}], "]"}], " ", 
+           RowBox[{"Log", "[", "e", "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"1", "+", "\[ImaginaryI]"}], ")"}], " ", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             RowBox[{"2", " ", "x"}], "+", 
+             RowBox[{"2", " ", "x", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Log", "[", "e", "]"}]}], ")"}]}]}]], " ", 
+           RowBox[{"Sin", "[", "x", "]"}]}], "-", 
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             RowBox[{"2", " ", "x"}], "+", 
+             RowBox[{"2", " ", "x", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Log", "[", "e", "]"}]}], ")"}]}]}]], " ", 
+           RowBox[{"Log", "[", "e", "]"}], " ", 
+           RowBox[{"Sin", "[", "x", "]"}]}]}], ")"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"2", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{"Log", "[", "e", "]"}]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", "\[ImaginaryI]"}], ")"}], "+", 
+          RowBox[{"Log", "[", "e", "]"}]}], ")"}]}], ")"}]}]}]}], "}"}], 
+  "}"}]], "Output",
+ CellFrame->{{0.5, 3}, {3, 0.5}},
+ CellFrameColor->RGBColor[0.976471, 0.0431373, 0.552941],
+ CellChangeTimes->{3.877693190515976*^9},
+ FontColor->RGBColor[0, 0, 1],
+ Background->RGBColor[1, 0.9, 0.8]]
+}, Open  ]]
+},
+WindowSize->{1280, 637},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+PrintingCopies->1,
+PrintingPageRange->{32000, 32000},
+PrintingOptions->{"Magnification"->1.,
+"PaperOrientation"->"Portrait",
+"PaperSize"->{612, 792}},
+Magnification:>0.9 Inherited,
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->FrontEnd`FileName[{"Book"}, "Monograph.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 530, 16, 129, "Text"],
+Cell[1091, 38, 3064, 109, 147, "Text"],
+Cell[CellGroupData[{
+Cell[4180, 151, 310, 6, 44, "Input"],
+Cell[4493, 159, 236, 5, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4766, 169, 551, 14, 44, "Input"],
+Cell[5320, 185, 545, 16, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5902, 206, 343, 8, 44, "Input"],
+Cell[6248, 216, 448, 13, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6733, 234, 937, 25, 113, "Input"],
+Cell[7673, 261, 363, 10, 47, "Output"],
+Cell[8039, 273, 231, 5, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8307, 283, 797, 23, 62, "Input"],
+Cell[9107, 308, 663, 21, 60, "Output"],
+Cell[9773, 331, 440, 13, 60, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10250, 349, 280, 6, 44, "Input"],
+Cell[10533, 357, 473, 14, 60, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11043, 376, 259, 5, 44, "Input"],
+Cell[11305, 383, 258, 5, 44, "Output"]
+}, Open  ]],
+Cell[11578, 391, 330, 6, 33, "Text"],
+Cell[CellGroupData[{
+Cell[11933, 401, 729, 20, 44, "Input"],
+Cell[12665, 423, 660, 19, 52, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13362, 447, 1044, 28, 113, "Input"],
+Cell[14409, 477, 308, 8, 47, "Output"],
+Cell[14720, 487, 308, 8, 47, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15065, 500, 796, 23, 62, "Input"],
+Cell[15864, 525, 360, 9, 64, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16261, 539, 287, 6, 44, "Input"],
+Cell[16551, 547, 826, 25, 64, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17414, 577, 258, 5, 44, "Input"],
+Cell[17675, 584, 236, 5, 44, "Output"]
+}, Open  ]],
+Cell[17926, 592, 274, 6, 44, "Input"],
+Cell[18203, 600, 274, 6, 44, "Input"],
+Cell[18480, 608, 665, 21, 66, "Text"],
+Cell[CellGroupData[{
+Cell[19170, 633, 969, 21, 44, "Input"],
+Cell[20142, 656, 1114, 29, 59, "Output"]
+}, Open  ]],
+Cell[21271, 688, 606, 23, 47, "Text"],
+Cell[CellGroupData[{
+Cell[21902, 715, 955, 25, 52, "Input"],
+Cell[22860, 742, 6303, 161, 122, "Output"]
+}, Open  ]]
+}
+]
+*)
+
